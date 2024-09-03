@@ -1,41 +1,67 @@
-name: hotel_booking_app
-description: A Very Good Project created by Very Good CLI.
+name: hotelyn
+description: "Awesome Flutter project"
+
 version: 1.0.0+1
-publish_to: none
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
-  bloc: ^7.2.0
-  bordered_text: 2.0.0
-  dio: ^4.0.0
-  equatable: ^2.0.3
+  bloc: ^8.1.2
+  cupertino_icons: ^1.0.2
+  equatable: ^2.0.5
+  firebase_auth: ^4.19.5
+  firebase_core: ^2.31.0
   flutter:
     sdk: flutter
-  flutter_bloc: ^7.3.0
+  flutter_bloc: ^8.1.3
   flutter_localizations:
     sdk: flutter
-  freezed: ^0.14.5
-  freezed_annotation: ^0.14.3
-  get_it: 7.2.0
-  http: 0.13.3
-  intl: ^0.17.0
-  json_annotation: ^4.1.0
-  json_serializable: ^5.0.1
-  provider: ^6.0.0
-  retrofit: ^2.0.1
-  
+  go_router: ^14.1.1
+  intl: 0.19.0
+  json_annotation: ^4.8.1
+  logger: ^2.3.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
-  bloc_test: ^8.2.0
-  build_runner: ^2.0.0
+  bloc_test: ^9.1.5
+  build_runner: ^2.4.8
+  fake_async: ^1.3.1
+  flutter_lints: ">=2.0.0 <5.0.0"
   flutter_test:
     sdk: flutter
-  mocktail: ^0.1.0
-  retrofit_generator: ^2.0.1+1
-  very_good_analysis: ^2.3.0
+  json_serializable: ^6.7.1
+  melos: ">=3.1.1 <7.0.0"
+  mocktail: ^1.0.3
+  test: ^1.25.2
+  very_good_analysis: ">=5.1.0 <7.0.0"
+
+fonts:
+  - family: DMSans
+    fonts:
+      - asset: assets/fonts/DMSans_18pt-Regular.ttf
+        style: regular
+      - asset: assets/fonts/DMSans_18pt-Medium.ttf
+        style: medium
+      - asset: assets/fonts/DMSans_18pt-Bold.ttf
+        style: bold
 
 flutter:
   uses-material-design: true
   generate: true
+
+  assets:
+    - assets/images/
+    - assets/images/hotelyn/
+    - assets/images/onboarding/
+    - assets/images/messages/
+    - assets/icons/
+
+  fonts:
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans_18pt-Regular.ttf
+        - asset: assets/fonts/DMSans_18pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DMSans_18pt-Bold.ttf
+          weight: 700

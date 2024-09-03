@@ -1,27 +1,20 @@
-// Copyright (c) 2021, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-
-import 'dart:async';
-import 'dart:developer';
-
-import 'package:bloc/bloc.dart';
-import 'package:flutter/widgets.dart';
-
-import 'package:hotel_booking_app/app/app.dart';
-import 'package:hotel_booking_app/app/app_bloc_observer.dart';
+import 'package:hotelyn/app/view/app.dart';
+import 'package:hotelyn/bootstrap.dart';
+import 'package:hotelyn/core/data/storage/storage.dart';
+import 'package:hotelyn/core/domain/repository/repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  Bloc.observer = AppBlocObserver();
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
+  bootstrap(() async {
+    final localDataSource = SharedStorage(
+      sharedPreferences: await SharedPreferences.getInstance(),
+    );
+    final preferenceRepository = OnBoardingRepository(
+      sharedStorage: localDataSource,
+    );
 
-  runZonedGuarded(
-    () => runApp(const HotelBookingApp()),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
-  );
+    return HotelynApp(
+      preferenceRepository: preferenceRepository,
+    );
+  });
 }
